@@ -1,5 +1,6 @@
 ﻿using System.Web.Razor.Generator;
 using System.Web.WebPages.Razor;
+using MinifierLibrary.Minifiers;
 
 namespace MinifierLibrary.Mvc
 {

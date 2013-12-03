@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using MinifierLibrary.Exceptions;
 using MinifierLibrary.Helpers;
 
-namespace MinifierLibrary
+namespace MinifierLibrary.Minifiers
 {
     internal class MinifierFactory
     {

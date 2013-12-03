@@ -70,11 +70,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultMinifier.cs" />
+    <Compile Include="Minifiers\DefaultMinifier.cs" />
     <Compile Include="Helpers\MinifierConfiguration.cs" />
-    <Compile Include="IMinifier.cs" />
-    <Compile Include="MinifierFactory.cs" />
-    <Compile Include="MinifierTypeNotFoundException.cs" />
+    <Compile Include="Minifiers\IMinifier.cs" />
+    <Compile Include="Minifiers\MinifierFactory.cs" />
+    <Compile Include="Minifiers\MelezeWebMinifier.cs" />
+    <Compile Include="Minifiers\MelezeWebMinifierState.cs" />
+    <Compile Include="Exceptions\MinifierTypeNotFoundException.cs" />
     <Compile Include="Mvc\CodeGeneratorFactory.cs" />
     <Compile Include="Mvc\MinifierCSharpRazorCodeGenerator.cs" />
     <Compile Include="Mvc\MinifierRazorHost.cs" />

@@ -9,7 +9,7 @@ namespace MinifierLibrary.Mvc
         public override WebPageRazorHost CreateHost(string virtualPath, string physicalPath)
         {
             var notMinifiedHost = base.CreateHost(virtualPath, physicalPath);
-            if (MinifierConfiguration.Instance.MinifyPages && (notMinifiedHost.DesignTimeMode || notMinifiedHost.IsSpecialPage))
+            if (!MinifierConfiguration.Instance.MinifyPages || (notMinifiedHost.DesignTimeMode || notMinifiedHost.IsSpecialPage))
             {
                 return notMinifiedHost;
             }
