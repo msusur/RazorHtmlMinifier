@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Razor.Generator;
+using MinifierLibrary.Helpers;
 
 namespace MinifierLibrary
 {
@@ -8,12 +8,26 @@ namespace MinifierLibrary
     {
         private static readonly Dictionary<string, Type> Minifiers = new Dictionary<string, Type>
                                                                          {
-                                                                             { "defaultminifier", typeof(DefaultMinifier) },
+                                                                             { "default", typeof(DefaultMinifier) },
                                                                          };
 
-        public static IMinifier GetMinifier(RazorCodeGenerator codeGenerator)
+        public static IMinifier GetMinifier()
         {
-
+            var key = MinifierConfiguration.Instance.ConfigurationType;
+            var minifierType = Minifiers[key];
+            if (minifierType == null)
+            {
+                throw new MinifierTypeNotFoundException(key);
+            }
+            try
+            {
+                var resultMinifier = (IMinifier)Activator.CreateInstance(minifierType);
+                return resultMinifier;
+            }
+            catch (Exception ex)
+            {
+                throw new MinifierTypeNotFoundException(key, ex);
+            }
         }
 
         public static void AddMinifier<TMinifier>(string key, TMinifier minifier)

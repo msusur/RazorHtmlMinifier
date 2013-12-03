@@ -11,8 +11,9 @@ namespace MinifierLibrary.Mvc
 
         public override RazorCodeGenerator DecorateCodeGenerator(RazorCodeGenerator incomingCodeGenerator)
         {
-            var minifier = MinifierFactory.GetMinifier(incomingCodeGenerator);
-            return minifier.GetMinifierCodeGenerator();
+            var minifier = MinifierFactory.GetMinifier();
+            var codeGenerator = CodeGeneratorFactory.GetCodeGenerator(this, incomingCodeGenerator, minifier);
+            return codeGenerator;
         }
     }
 }

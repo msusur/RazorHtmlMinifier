@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{101DCA
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minifier.Sandbox", "Minifier.Sandbox\Minifier.Sandbox.csproj", "{37539A3B-B70B-44FF-BC97-B441835F9C74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{448A89E9-DDD1-4C96-9983-8D965FED9299}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,10 @@ Global
 		{717239A6-1DFC-45D9-99CC-23AB8E991778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{717239A6-1DFC-45D9-99CC-23AB8E991778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{717239A6-1DFC-45D9-99CC-23AB8E991778}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37539A3B-B70B-44FF-BC97-B441835F9C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37539A3B-B70B-44FF-BC97-B441835F9C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37539A3B-B70B-44FF-BC97-B441835F9C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37539A3B-B70B-44FF-BC97-B441835F9C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448A89E9-DDD1-4C96-9983-8D965FED9299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448A89E9-DDD1-4C96-9983-8D965FED9299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448A89E9-DDD1-4C96-9983-8D965FED9299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448A89E9-DDD1-4C96-9983-8D965FED9299}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Web.Razor.Generator;
-
-namespace MinifierLibrary
+﻿namespace MinifierLibrary
 {
     internal class DefaultMinifier : IMinifier
     {
-        public RazorCodeGenerator GetMinifierCodeGenerator()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

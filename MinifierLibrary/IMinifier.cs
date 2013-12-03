@@ -1,9 +1,6 @@
-﻿using System.Web.Razor.Generator;
-
-namespace MinifierLibrary
+﻿namespace MinifierLibrary
 {
-    internal interface IMinifier
+    public interface IMinifier
     {
-        RazorCodeGenerator GetMinifierCodeGenerator();
     }
 }
