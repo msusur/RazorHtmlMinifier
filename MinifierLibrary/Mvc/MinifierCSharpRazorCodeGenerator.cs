@@ -1,4 +1,5 @@
 ﻿using System.CodeDom;
+using System.Diagnostics;
 using System.Web.Razor.Generator;
 using System.Web.Razor.Parser.SyntaxTree;
 using System.Web.Razor.Text;
@@ -52,12 +53,21 @@ namespace MinifierLibrary.Mvc
         {
             if (span.Kind == SpanKind.Markup)
             {
-                string content = span.Content;
+                var content = span.Content;
 
                 content = _minifier.Minify(content);
 
-                var builder = new SpanBuilder { CodeGenerator = span.CodeGenerator, EditHandler = span.EditHandler, Kind = span.Kind, Start = span.Start };
-                var symbol = new MarkupSymbol { Content = content };
+                var builder = new SpanBuilder
+                              {
+                                  CodeGenerator = span.CodeGenerator,
+                                  EditHandler = span.EditHandler,
+                                  Kind = span.Kind,
+                                  Start = span.Start
+                              };
+                var symbol = new MarkupSymbol
+                             {
+                                 Content = content
+                             };
                 builder.Accept(symbol);
                 span.ReplaceWith(builder);
             }
