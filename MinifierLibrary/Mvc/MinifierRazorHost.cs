@@ -1,10 +1,10 @@
-﻿using System.Web.Razor.Generator;
-using System.Web.WebPages.Razor;
+﻿using System.Web.Mvc.Razor;
+using System.Web.Razor.Generator;
 using MinifierLibrary.Minifiers;
 
 namespace MinifierLibrary.Mvc
 {
-    public class MinifierRazorHost : WebPageRazorHost
+    public class MinifierRazorHost : MvcWebPageRazorHost
     {
         public MinifierRazorHost(string virtualPath, string physicalPath)
             : base(virtualPath, physicalPath)

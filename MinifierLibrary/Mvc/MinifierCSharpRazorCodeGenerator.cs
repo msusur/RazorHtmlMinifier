@@ -1,5 +1,5 @@
 ﻿using System.CodeDom;
-using System.Diagnostics;
+using System.Web.Razor;
 using System.Web.Razor.Generator;
 using System.Web.Razor.Parser.SyntaxTree;
 using System.Web.Razor.Text;
@@ -33,18 +33,17 @@ namespace MinifierLibrary.Mvc
             }
         }
 
-        private readonly MinifierRazorHost _codeGeneratorHost;
-        private readonly RazorCodeGenerator _incomingCodeGenerator;
         private readonly IMinifier _minifier;
 
-        public MinifierCSharpRazorCodeGenerator(MinifierRazorHost codeGeneratorHost, RazorCodeGenerator incomingCodeGenerator, IMinifier minifier)
+        public MinifierCSharpRazorCodeGenerator(RazorEngineHost codeGeneratorHost, RazorCodeGenerator incomingCodeGenerator, IMinifier minifier)
             : base(incomingCodeGenerator.ClassName,
                 incomingCodeGenerator.RootNamespaceName,
                 incomingCodeGenerator.SourceFileName,
                 codeGeneratorHost)
         {
-            _codeGeneratorHost = codeGeneratorHost;
-            _incomingCodeGenerator = incomingCodeGenerator;
+            //var webPageRazorHost = codeGeneratorHost as MvcWebPageRazorHost;
+            //if (webPageRazorHost == null || webPageRazorHost.IsSpecialPage)
+            //    return;
             SetBaseType("dynamic");
             _minifier = minifier;
         }
@@ -57,20 +56,12 @@ namespace MinifierLibrary.Mvc
 
                 content = _minifier.Minify(content);
 
-                var builder = new SpanBuilder
-                              {
-                                  CodeGenerator = span.CodeGenerator,
-                                  EditHandler = span.EditHandler,
-                                  Kind = span.Kind,
-                                  Start = span.Start
-                              };
-                var symbol = new MarkupSymbol
-                             {
-                                 Content = content
-                             };
+                var builder = new SpanBuilder { CodeGenerator = span.CodeGenerator, EditHandler = span.EditHandler, Kind = span.Kind, Start = span.Start };
+                var symbol = new MarkupSymbol { Content = content };
                 builder.Accept(symbol);
                 span.ReplaceWith(builder);
             }
+
             base.VisitSpan(span);
         }
 
