@@ -10,6 +10,7 @@ namespace MinifierLibrary.Mvc
 {
     internal class MinifierCSharpRazorCodeGenerator : CSharpRazorCodeGenerator
     {
+        //https://github.com/Chebur9tina/HtmlOptimizerMvc4
         private sealed class MarkupSymbol : ISymbol
         {
             public string Content { get; set; }
@@ -41,9 +42,6 @@ namespace MinifierLibrary.Mvc
                 incomingCodeGenerator.SourceFileName,
                 codeGeneratorHost)
         {
-            //var webPageRazorHost = codeGeneratorHost as MvcWebPageRazorHost;
-            //if (webPageRazorHost == null || webPageRazorHost.IsSpecialPage)
-            //    return;
             SetBaseType("dynamic");
             _minifier = minifier;
         }
@@ -56,8 +54,17 @@ namespace MinifierLibrary.Mvc
 
                 content = _minifier.Minify(content);
 
-                var builder = new SpanBuilder { CodeGenerator = span.CodeGenerator, EditHandler = span.EditHandler, Kind = span.Kind, Start = span.Start };
-                var symbol = new MarkupSymbol { Content = content };
+                var builder = new SpanBuilder
+                              {
+                                  CodeGenerator = span.CodeGenerator,
+                                  EditHandler = span.EditHandler,
+                                  Kind = span.Kind,
+                                  Start = span.Start
+                              };
+                var symbol = new MarkupSymbol
+                             {
+                                 Content = content
+                             };
                 builder.Accept(symbol);
                 span.ReplaceWith(builder);
             }

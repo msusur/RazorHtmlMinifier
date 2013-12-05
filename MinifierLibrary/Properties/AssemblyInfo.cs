@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("MinifierLibrary")]
-[assembly: AssemblyDescription("Basic html output minifier for Razor View Engine. Based on work of https://github.com/meleze/Meleze.Web")]
+[assembly: AssemblyDescription("Basic html output minifier for Razor View Engine. Based on work of https://github.com/meleze/Meleze.Web & https://github.com/Chebur9tina/HtmlOptimizerMvc4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mert.Susur")]
 [assembly: AssemblyProduct("MinifierLibrary")]

@@ -9,7 +9,16 @@ namespace MinifierLibrary.Helpers
 
         private static MinifierConfiguration CreateConfiguration()
         {
-            return (MinifierConfiguration)ConfigurationManager.GetSection("minifier");
+            var configurationSection = ConfigurationManager.GetSection("minifier") as MinifierConfiguration;
+            if (configurationSection == null)
+            {
+                return new MinifierConfiguration
+                       {
+                           ConfigurationType = "default",
+                           MinifyPages = true
+                       };
+            }
+            return configurationSection;
         }
 
         public static MinifierConfiguration Instance
